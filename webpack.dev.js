@@ -1,5 +1,6 @@
 const path = require('path')
 const { merge } = require('webpack-merge')
+const Dotenv = require('dotenv-webpack')
 const common = require('./webpack.common.js')
 
 module.exports = merge(common, {
@@ -9,6 +10,7 @@ module.exports = merge(common, {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
+  plugins: [new Dotenv()],
   module: {
     rules: [
       {

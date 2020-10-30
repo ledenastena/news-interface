@@ -13,5 +13,7 @@ module.exports = {
   },
   parser: 'babel-eslint',
   plugins: ['react', 'prettier'],
-  rules: {},
+  rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+  },
 }

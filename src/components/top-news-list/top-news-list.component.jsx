@@ -13,9 +13,11 @@ class TopNewsList extends React.Component {
 
     return (
       <div className="top-news-list-container">
-        {newsData.map((newsItem) => (
-          <NewsThumbnail key={newsItem.url} newsObj={newsItem} />
-        ))}
+        <div className="row">
+          {newsData.map((newsItem) => (
+            <NewsThumbnail key={newsItem.url} newsObj={newsItem} />
+          ))}
+        </div>
       </div>
     )
   }

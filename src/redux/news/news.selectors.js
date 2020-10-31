@@ -16,3 +16,8 @@ export const selectErrorMessage = createSelector(
   [selectNews],
   (news) => news.errorMessage
 )
+
+export const selectCountry = createSelector(
+  [selectNews],
+  (news) => news.country
+)

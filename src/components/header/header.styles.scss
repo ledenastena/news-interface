@@ -1,8 +1,39 @@
 .header-container {
+  width: 100%;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  a {
-    margin: 0 5px;
-    padding: 5px;
+  .header-width {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+
+    .header-navigation {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-country-select {
+      .country-select-button {
+        background-color: rgba(255, 255, 255, 0);
+        border: none;
+        padding: 8px;
+        font-size: 22px;
+        cursor: pointer;
+        border-radius: 4px;
+
+        &:focus {
+          border: 1px solid #474747;
+        }
+
+        &.selected {
+          background-color: #474747;
+          color: white;
+        }
+      }
+    }
   }
 }

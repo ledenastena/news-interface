@@ -1,18 +1,10 @@
 import newsActionTypes from './news.types'
 
 const INITIAL_STATE = {
-  newsData: [
-    {
-      url: '114',
-      title: 'This is news number 1',
-    },
-    {
-      url: '222',
-      title: 'Second news in the world of news',
-    },
-  ],
+  newsData: [],
   fetchingNews: false,
   errorMessage: null,
+  country: 'gb',
 }
 
 const newsReducer = (state = INITIAL_STATE, action) => {
@@ -34,6 +26,11 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         ...state,
         fetchingNews: false,
         errorMessage: action.payload,
+      }
+    case newsActionTypes.SET_COUNTRY:
+      return {
+        ...state,
+        country: action.payload,
       }
     default:
       return state

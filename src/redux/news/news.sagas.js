@@ -3,10 +3,10 @@ import axios from 'axios'
 import newsActionTypes from './news.types'
 import { fetchNewsSuccess, fetchNewsFailure } from './news.actions'
 
-export function* fetchNewsStartAsync() {
+export function* fetchNewsStartAsync(action) {
   try {
     const response = yield axios.get(
-      `${process.env.API_URL}/top-headlines?country=us`,
+      `${process.env.API_URL}?country=${action.payload.country}`,
       {
         headers: {
           Authorization: `Bearer ${process.env.API_KEY}`,

@@ -14,3 +14,8 @@ export const fetchNewsFailure = (errorMsg) => ({
   type: newsActionTypes.FETCH_NEWS_FAILURE,
   payload: errorMsg,
 })
+
+export const setCountry = (country) => ({
+  type: newsActionTypes.SET_COUNTRY,
+  payload: country,
+})

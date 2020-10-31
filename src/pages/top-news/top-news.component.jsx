@@ -6,26 +6,46 @@ import {
   selectNewsData,
   selectFetchingNews,
   selectErrorMessage,
+  selectCountry,
 } from '../../redux/news/news.selectors'
 import { fetchNewsStart } from '../../redux/news/news.actions'
 import TopNewsList from '../../components/top-news-list/top-news-list.component'
+import Loading from '../../components/loading/loading.component'
 
 class TopNewsPage extends React.Component {
   componentDidMount() {
-    const { fetchNewsStart } = this.props
+    const { country, fetchNewsStart } = this.props
 
-    fetchNewsStart()
+    fetchNewsStart({ country })
+  }
+
+  componentDidUpdate(prevProps) {
+    const { country, fetchNewsStart } = this.props
+
+    if (prevProps.country !== country) {
+      fetchNewsStart({ country })
+    }
   }
 
   render() {
     const { newsData, fetchingNews, errorMessage } = this.props
 
     if (fetchingNews) {
-      return <div className="top-news-page-container">Loading...</div>
+      return (
+        <div className="top-news-page-container">
+          <Loading />
+        </div>
+      )
     }
 
     if (errorMessage) {
-      return <div className="top-news-page-container">{errorMessage}</div>
+      return (
+        <div className="top-news-page-container">
+          <div className="top-news-page-error">
+            An error occurred while trying to fetch data: {errorMessage}
+          </div>
+        </div>
+      )
     }
 
     if (!newsData.length) {
@@ -46,6 +66,7 @@ const mapStateToProps = (state) => ({
   newsData: selectNewsData(state),
   fetchingNews: selectFetchingNews(state),
   errorMessage: selectErrorMessage(state),
+  country: selectCountry(state),
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -57,6 +78,7 @@ TopNewsPage.defaultProps = {
   fetchingNews: false,
   errorMessage: null,
   fetchNewsStart: null,
+  country: 'gb',
 }
 
 TopNewsPage.propTypes = {
@@ -64,6 +86,7 @@ TopNewsPage.propTypes = {
   fetchingNews: PropTypes.bool,
   errorMessage: PropTypes.string,
   fetchNewsStart: PropTypes.func,
+  country: PropTypes.string,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNewsPage)

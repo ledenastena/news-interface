@@ -13,7 +13,6 @@ export function* fetchNewsStartAsync() {
         },
       }
     )
-    console.log(response.data)
     yield put(fetchNewsSuccess(response.data.articles))
   } catch (e) {
     yield put(fetchNewsFailure(e.message))

@@ -12,6 +12,14 @@ module.exports = {
     sourceType: 'module',
   },
   parser: 'babel-eslint',
+  overrides: [
+    {
+      files: ['**/*.test.js', '**/*.test.jsx', '__mocks__/*.js'],
+      env: {
+        jest: true,
+      },
+    },
+  ],
   plugins: ['react', 'prettier'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],

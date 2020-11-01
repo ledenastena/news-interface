@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom'
 import LoadingImage from '../loading-image/loading-image.component'
 
 const NewsThumbnail = ({ newsObj }) => (
-  <div className="news-thumbnail-container col-l-4 col-m-6 col-s-6">
+  <div
+    data-testid="news-thumbnail-container"
+    className="news-thumbnail-container col-l-4 col-m-6 col-s-6"
+  >
     <div className="news-thumbnail-title">{newsObj.title}</div>
     <LoadingImage
       className="news-thumbnail-image"

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render NewsThumbnail correctly 1`] = `
+<div
+  class="news-thumbnail-container col-l-4 col-m-6 col-s-6"
+  data-testid="news-thumbnail-container"
+>
+  <div
+    class="news-thumbnail-title"
+  >
+    article1
+  </div>
+  <div
+    class="loading-image-container"
+  >
+    <img
+      alt="article1"
+      class="news-thumbnail-image"
+      src="333"
+    />
+    <div
+      class="loading-ring"
+      data-testid="loading-ring"
+    />
+  </div>
+  <div
+    class="news-thumbnail-description"
+  >
+    Article one descriprion
+  </div>
+  <a
+    class="read-more-link"
+    href="/article"
+  >
+    More
+  </a>
+</div>
+`;

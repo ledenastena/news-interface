@@ -20,7 +20,7 @@ const NewsThumbnail = ({ newsObj }) => (
       className="read-more-link"
       to={{ pathname: '/article', state: { newsObj } }}
     >
-      More
+      More &gt;
     </Link>
   </div>
 )

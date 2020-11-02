@@ -1,0 +1,15 @@
+.category-full-view-container {
+  max-height: 5000px;
+  margin-top: 15px;
+  visibility: visible;
+  transition: max-height 1.25s, visibility 1.25s, opacity 1.25s;
+  overflow: hidden;
+  background-color: white;
+  opacity: 1;
+
+  &.collapsed {
+    max-height: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+}

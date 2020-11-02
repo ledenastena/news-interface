@@ -5,6 +5,10 @@ const INITIAL_STATE = {
   fetchingNews: false,
   errorMessage: null,
   country: 'gb',
+  newsByCategory: {},
+  fetchingNewsByCategory: false,
+  errorMessageByCategory: null,
+  categories: [],
 }
 
 const newsReducer = (state = INITIAL_STATE, action) => {
@@ -31,6 +35,25 @@ const newsReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         country: action.payload,
+      }
+    case newsActionTypes.FETCH_NEWS_BY_CATEGORY_START:
+      return {
+        ...state,
+        fetchingNewsByCategory: true,
+        errorMessageByCategory: null,
+      }
+    case newsActionTypes.FETCH_NEWS_BY_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        newsByCategory: action.payload,
+        categories: Object.keys(action.payload),
+        fetchingNewsByCategory: false,
+      }
+    case newsActionTypes.FETCH_NEWS_BY_CATEGORY_FAILURE:
+      return {
+        ...state,
+        fetchingNewsByCategory: false,
+        errorMessageByCategory: action.payload,
       }
     default:
       return state

@@ -19,3 +19,18 @@ export const setCountry = (country) => ({
   type: newsActionTypes.SET_COUNTRY,
   payload: country,
 })
+
+export const fetchNewsByCategoryStart = (country) => ({
+  type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_START,
+  payload: country,
+})
+
+export const fetchNewsByCategorySuccess = (data) => ({
+  type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_SUCCESS,
+  payload: data,
+})
+
+export const fetchNewsByCategoryFailure = (errorMsg) => ({
+  type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_FAILURE,
+  payload: errorMsg,
+})

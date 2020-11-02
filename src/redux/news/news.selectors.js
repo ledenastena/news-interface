@@ -21,3 +21,23 @@ export const selectCountry = createSelector(
   [selectNews],
   (news) => news.country
 )
+
+export const selectNewsByCategory = createSelector(
+  [selectNews],
+  (news) => news.newsByCategory
+)
+
+export const selectFetchingNewsByCategory = createSelector(
+  [selectNews],
+  (news) => news.fetchingNewsByCategory
+)
+
+export const selectErrorMessageByCategory = createSelector(
+  [selectNews],
+  (news) => news.errorMessageByCategory
+)
+
+export const selectCategories = createSelector(
+  [selectNews],
+  (news) => news.categories
+)

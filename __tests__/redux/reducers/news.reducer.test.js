@@ -7,6 +7,10 @@ describe('news reducer tests', () => {
     fetchingNews: false,
     errorMessage: null,
     country: 'gb',
+    newsByCategory: {},
+    fetchingNewsByCategory: false,
+    errorMessageByCategory: null,
+    categories: [],
   }
 
   it('should initialize sate properly', () => {
@@ -84,6 +88,66 @@ describe('news reducer tests', () => {
       newsReducer(inputState, {
         type: newsActionTypes.SET_COUNTRY,
         payload: 'us',
+      })
+    ).toEqual(expectedState)
+  })
+
+  it('should handle action FETCH_NEWS_BY_CATEGORY_START', () => {
+    const inputState = {
+      ...initialState,
+      errorMessageByCategory: 'Some message',
+    }
+
+    const expectedState = {
+      ...initialState,
+      fetchingNewsByCategory: true,
+      errorMessageByCategory: null,
+    }
+
+    expect(
+      newsReducer(inputState, {
+        type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_START,
+      })
+    ).toEqual(expectedState)
+  })
+
+  it('should handle action FETCH_NEWS_BY_CATEGORY_SUCCESS', () => {
+    const inputState = {
+      ...initialState,
+      fetchingNewsByCategory: true,
+    }
+
+    const expectedState = {
+      ...initialState,
+      newsByCategory: { business: ['article1', 'article2'] },
+      fetchingNews: false,
+      categories: ['business'],
+    }
+
+    expect(
+      newsReducer(inputState, {
+        type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_SUCCESS,
+        payload: { business: ['article1', 'article2'] },
+      })
+    ).toEqual(expectedState)
+  })
+
+  it('should handle action FETCH_NEWS_BY_CATEGORY_FAILURE', () => {
+    const inputState = {
+      ...initialState,
+      fetchingNewsByCategory: true,
+    }
+
+    const expectedState = {
+      ...initialState,
+      fetchingNewsByCategory: false,
+      errorMessageByCategory: 'Some message',
+    }
+
+    expect(
+      newsReducer(inputState, {
+        type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_FAILURE,
+        payload: 'Some message',
       })
     ).toEqual(expectedState)
   })

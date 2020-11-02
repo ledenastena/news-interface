@@ -1,6 +1,6 @@
 import { call, all } from 'redux-saga/effects'
-import { onFetchNewsStart } from './news/news.sagas'
+import { onFetchNewsStart, onFetchNewsByCategoryStart } from './news/news.sagas'
 
 export default function* rootSaga() {
-  yield all([call(onFetchNewsStart)])
+  yield all([call(onFetchNewsStart), call(onFetchNewsByCategoryStart)])
 }

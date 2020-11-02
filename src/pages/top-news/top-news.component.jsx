@@ -9,7 +9,7 @@ import {
   selectCountry,
 } from '../../redux/news/news.selectors'
 import { fetchNewsStart } from '../../redux/news/news.actions'
-import TopNewsList from '../../components/top-news-list/top-news-list.component'
+import NewsList from '../../components/news-list/news-list.component'
 import Loading from '../../components/loading/loading.component'
 
 class TopNewsPage extends React.Component {
@@ -56,7 +56,7 @@ class TopNewsPage extends React.Component {
 
     return (
       <div className="top-news-page-container">
-        <TopNewsList />
+        <NewsList />
       </div>
     )
   }

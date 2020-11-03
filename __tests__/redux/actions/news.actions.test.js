@@ -6,6 +6,8 @@ import {
   fetchNewsByCategoryStart,
   fetchNewsByCategorySuccess,
   fetchNewsByCategoryFailure,
+  clearNews,
+  clearNewsByCategory,
 } from '../../../src/redux/news/news.actions'
 import newsActionTypes from '../../../src/redux/news/news.types'
 
@@ -63,6 +65,18 @@ describe('news action creators', () => {
     expect(fetchNewsByCategoryFailure(errorMessage)).toEqual({
       type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_FAILURE,
       payload: errorMessage,
+    })
+  })
+
+  it('should create an action object for clearing the news data', () => {
+    expect(clearNews()).toEqual({
+      type: newsActionTypes.CLEAR_NEWS,
+    })
+  })
+
+  it('should create an action object for clearing news by categories data', () => {
+    expect(clearNewsByCategory()).toEqual({
+      type: newsActionTypes.CLEAR_NEWS_BY_CATEGORY,
     })
   })
 })

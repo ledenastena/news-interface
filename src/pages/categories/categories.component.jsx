@@ -8,7 +8,10 @@ import {
   selectFetchingNewsByCategory,
   selectErrorMessageByCategory,
 } from '../../redux/news/news.selectors'
-import { fetchNewsByCategoryStart } from '../../redux/news/news.actions'
+import {
+  fetchNewsByCategoryStart,
+  clearNewsByCategory,
+} from '../../redux/news/news.actions'
 import Loading from '../../components/loading/loading.component'
 import CategoryNewsList from '../../components/category-news-list/category-news-list.component'
 
@@ -24,6 +27,12 @@ class CategoriesPage extends React.Component {
     if (prevProps.country !== country) {
       fetchNewsByCategoryStart(country)
     }
+  }
+
+  componentWillUnmount() {
+    const { clearNewsByCategory } = this.props
+
+    clearNewsByCategory()
   }
 
   render() {
@@ -76,6 +85,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchNewsByCategoryStart: (country) =>
     dispatch(fetchNewsByCategoryStart(country)),
+  clearNewsByCategory: () => dispatch(clearNewsByCategory()),
 })
 
 CategoriesPage.defaultProps = {
@@ -84,6 +94,7 @@ CategoriesPage.defaultProps = {
   fetchingNewsByCategory: false,
   errorMessageByCategory: null,
   fetchNewsByCategoryStart: null,
+  clearNewsByCategory: null,
 }
 
 CategoriesPage.propTypes = {
@@ -92,6 +103,7 @@ CategoriesPage.propTypes = {
   fetchingNewsByCategory: PropTypes.bool,
   errorMessageByCategory: PropTypes.string,
   fetchNewsByCategoryStart: PropTypes.func,
+  clearNewsByCategory: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CategoriesPage)

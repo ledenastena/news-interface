@@ -55,6 +55,17 @@ const newsReducer = (state = INITIAL_STATE, action) => {
         fetchingNewsByCategory: false,
         errorMessageByCategory: action.payload,
       }
+    case newsActionTypes.CLEAR_NEWS:
+      return {
+        ...state,
+        newsData: [],
+      }
+    case newsActionTypes.CLEAR_NEWS_BY_CATEGORY:
+      return {
+        ...state,
+        newsByCategory: {},
+        categories: [],
+      }
     default:
       return state
   }

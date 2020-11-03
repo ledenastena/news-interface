@@ -32,7 +32,7 @@ exports[`should render NewsThumbnail correctly 1`] = `
     class="read-more-link"
     href="/article"
   >
-    More
+    More &gt;
   </a>
 </div>
 `;

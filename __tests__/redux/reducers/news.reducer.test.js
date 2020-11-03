@@ -151,4 +151,39 @@ describe('news reducer tests', () => {
       })
     ).toEqual(expectedState)
   })
+
+  it('should handle action CLEAR_NEWS', () => {
+    const inputState = {
+      ...initialState,
+      newsData: ['article1', 'article2'],
+    }
+
+    const expectedState = {
+      ...initialState,
+    }
+
+    expect(
+      newsReducer(inputState, {
+        type: newsActionTypes.CLEAR_NEWS,
+      })
+    ).toEqual(expectedState)
+  })
+
+  it('should handle action CLEAR_NEWS_BY_CATEGORY', () => {
+    const inputState = {
+      ...initialState,
+      newsByCategory: ['article1', 'article2'],
+      categories: ['category1', 'category2'],
+    }
+
+    const expectedState = {
+      ...initialState,
+    }
+
+    expect(
+      newsReducer(inputState, {
+        type: newsActionTypes.CLEAR_NEWS_BY_CATEGORY,
+      })
+    ).toEqual(expectedState)
+  })
 })

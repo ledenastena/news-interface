@@ -16,11 +16,9 @@ const CategoryNewsList = ({ categories, country }) => (
     <div className="category-news-heading">
       Top 5 news by categories from {country.toUpperCase()}
     </div>
-    {/* {categories.map((category) => ( */}
-    <CategoryExpandable
-      /* key={category} */ category="business" /* {category} */
-    />
-    {/* ))} */}
+    {categories.map((category) => (
+      <CategoryExpandable key={category} category={category} />
+    ))}
   </div>
 )
 

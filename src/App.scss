@@ -159,14 +159,21 @@
       }
     }
 
-    .categories-page-container
+    .top-news-page {
+      padding: 0 25px;
+    }
+
+    .categories-page-container {
+      padding: 0 25px;
+
       .category-news-list-container
-      .category-expandable-container
-      .category-preview-container
-      .small-news-thumbnail-container
-      .small-news-thumbnail-title {
-      font-size: 12px;
-      word-break: normal;
+        .category-expandable-container
+        .category-preview-container
+        .small-news-thumbnail-container
+        .small-news-thumbnail-title {
+        font-size: 12px;
+        word-break: normal;
+      }
     }
 
     .categories-page-container
@@ -176,6 +183,10 @@
       .small-news-thumbnail-container
       .small-news-thumbnail-image {
       height: 80px;
+    }
+
+    .search-page-container {
+      padding: 0 25px;
     }
   }
 

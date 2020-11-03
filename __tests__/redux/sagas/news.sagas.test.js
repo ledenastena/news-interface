@@ -37,7 +37,7 @@ describe('testing the top news fetching saga', () => {
 
     sagaTester.dispatch({
       type: newsActionTypes.FETCH_NEWS_START,
-      payload: { country: 'gb' },
+      payload: { country: 'gb', searchTerm: 'michael+jordan' },
     })
 
     // State reflects that fetching is taking place
@@ -66,7 +66,7 @@ describe('testing the top news fetching saga', () => {
     expect(mockAxios.get.mock.calls.length).toBe(1)
     // With parameters properly passed
     expect(mockAxios.get.mock.calls[0][0]).toBe(
-      `${process.env.API_URL}?country=gb`
+      `${process.env.API_URL}?country=gb&q=michael+jordan`
     )
     expect(mockAxios.get.mock.calls[0][1]).toEqual({
       headers: {

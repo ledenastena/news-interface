@@ -34,3 +34,11 @@ export const fetchNewsByCategoryFailure = (errorMsg) => ({
   type: newsActionTypes.FETCH_NEWS_BY_CATEGORY_FAILURE,
   payload: errorMsg,
 })
+
+export const clearNews = () => ({
+  type: newsActionTypes.CLEAR_NEWS,
+})
+
+export const clearNewsByCategory = () => ({
+  type: newsActionTypes.CLEAR_NEWS_BY_CATEGORY,
+})

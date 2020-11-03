@@ -8,7 +8,7 @@ import {
   selectErrorMessage,
   selectCountry,
 } from '../../redux/news/news.selectors'
-import { fetchNewsStart } from '../../redux/news/news.actions'
+import { fetchNewsStart, clearNews } from '../../redux/news/news.actions'
 import NewsList from '../../components/news-list/news-list.component'
 import Loading from '../../components/loading/loading.component'
 
@@ -25,6 +25,12 @@ class TopNewsPage extends React.Component {
     if (prevProps.country !== country) {
       fetchNewsStart({ country })
     }
+  }
+
+  componentWillUnmount() {
+    const { clearNews } = this.props
+
+    clearNews()
   }
 
   render() {
@@ -71,6 +77,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchNewsStart: (requestObj) => dispatch(fetchNewsStart(requestObj)),
+  clearNews: () => dispatch(clearNews()),
 })
 
 TopNewsPage.defaultProps = {
@@ -79,6 +86,7 @@ TopNewsPage.defaultProps = {
   errorMessage: null,
   fetchNewsStart: null,
   country: 'gb',
+  clearNews: null,
 }
 
 TopNewsPage.propTypes = {
@@ -87,6 +95,7 @@ TopNewsPage.propTypes = {
   errorMessage: PropTypes.string,
   fetchNewsStart: PropTypes.func,
   country: PropTypes.string,
+  clearNews: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopNewsPage)

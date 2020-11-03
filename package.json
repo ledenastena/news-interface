@@ -22,6 +22,10 @@
     "clearMocks": true,
     "setupFiles": [
       "<rootDir>/__tests__/jestSetup.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/__tests__/test-utils.js",
+      "<rootDir>/__tests__/jestSetup.js"
     ]
   },
   "author": "Milan",

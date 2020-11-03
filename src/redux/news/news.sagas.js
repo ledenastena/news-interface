@@ -9,9 +9,15 @@ import {
 } from './news.actions'
 
 export function* fetchNewsStartAsync(action) {
+  const searchParam = action.payload.searchTerm
+    ? `&q=${action.payload.searchTerm}`
+    : null
+
   try {
     const response = yield axios.get(
-      `${process.env.API_URL}?country=${action.payload.country}`,
+      `${process.env.API_URL}?country=${action.payload.country}${
+        searchParam || ''
+      }`,
       {
         headers: {
           Authorization: `Bearer ${process.env.API_KEY}`,
@@ -46,31 +52,31 @@ export function* fetchParallel(action) {
     const country = action.payload
     const [
       business,
-      // entertainment,
-      // general,
-      // health,
-      // science,
-      // sports,
-      // technology,
+      entertainment,
+      general,
+      health,
+      science,
+      sports,
+      technology,
     ] = yield all([
       call(fetchByCategoryAsync, country, 'business'),
-      // call(fetchByCategoryAsync, country, 'entertainment'),
-      // call(fetchByCategoryAsync, country, 'general'),
-      // call(fetchByCategoryAsync, country, 'health'),
-      // call(fetchByCategoryAsync, country, 'science'),
-      // call(fetchByCategoryAsync, country, 'sports'),
-      // call(fetchByCategoryAsync, country, 'technology'),
+      call(fetchByCategoryAsync, country, 'entertainment'),
+      call(fetchByCategoryAsync, country, 'general'),
+      call(fetchByCategoryAsync, country, 'health'),
+      call(fetchByCategoryAsync, country, 'science'),
+      call(fetchByCategoryAsync, country, 'sports'),
+      call(fetchByCategoryAsync, country, 'technology'),
     ])
 
     yield put(
       fetchNewsByCategorySuccess({
         business,
-        // entertainment,
-        // general,
-        // health,
-        // science,
-        // sports,
-        // technology,
+        entertainment,
+        general,
+        health,
+        science,
+        sports,
+        technology,
       })
     )
   } catch (e) {

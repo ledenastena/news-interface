@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 15px;
+  padding: 0;
   transition: visibility 1s, width 1s, padding 1s, opacity 1s, transform 1s;
   transform: translateX(0);
   opacity: 1;
@@ -29,19 +29,32 @@
     display: none;
   }
 
+  // The title on small thumbnails will display 3 lines of text with ... if overflowed
+  // This works in newer browsers
   .small-news-thumbnail-title {
-    text-align: center;
-    font-size: 18px;
-    height: 100%;
+    font-size: 10px;
+    font-weight: 700;
+    text-align: left;
+    line-height: 1.25em;
+    height: 3.75em;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     width: 100%;
     margin-bottom: 10px;
   }
 
   .small-news-thumbnail-image {
     width: 100%;
+    height: 40px;
+    object-fit: cover;
   }
 
   .read-more-link {
+    padding: 0;
     font-size: 16px;
   }
 }

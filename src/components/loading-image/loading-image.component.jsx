@@ -3,6 +3,7 @@ import './loading-image.styles.scss'
 import PropTypes from 'prop-types'
 import imageNotFound from '../../assets/image-not-found.png'
 import Loading from '../loading/loading.component'
+import SmallLoading from '../small-loading/small-loading.component'
 
 class LoadingImage extends React.Component {
   state = {
@@ -16,8 +17,9 @@ class LoadingImage extends React.Component {
   }
 
   render() {
-    const { imageUrl, imageTitle, className } = this.props
+    const { imageUrl, imageTitle, className, small } = this.props
     const { loading } = this.state
+    const loaderToDisplay = small ? <SmallLoading /> : <Loading />
 
     if (!imageUrl) {
       return (
@@ -38,7 +40,7 @@ class LoadingImage extends React.Component {
             e.target.src = imageNotFound
           }}
         />
-        {loading ? <Loading /> : ''}
+        {loading ? loaderToDisplay : ''}
       </div>
     )
   }
@@ -48,12 +50,14 @@ LoadingImage.defaultProps = {
   imageUrl: null,
   imageTitle: null,
   className: null,
+  small: false,
 }
 
 LoadingImage.propTypes = {
   imageUrl: PropTypes.string,
   imageTitle: PropTypes.string,
   className: PropTypes.string,
+  small: PropTypes.bool,
 }
 
 export default LoadingImage

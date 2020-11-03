@@ -1,0 +1,29 @@
+.menu-dropdown-container {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 10px 0;
+  background-color: white;
+  box-shadow: 0 0 20px #999;
+  z-index: 1;
+
+  a.selected {
+    background-color: #474747;
+    color: white;
+  }
+
+  hr {
+    width: 90%;
+  }
+
+  .menu-dropdown-item {
+    padding: 5px 20px;
+    font-size: 20px;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

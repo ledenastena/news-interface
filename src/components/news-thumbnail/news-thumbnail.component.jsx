@@ -1,10 +1,10 @@
 import React from 'react'
 import './news-thumbnail.styles.scss'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import LoadingImage from '../loading-image/loading-image.component'
 
-const NewsThumbnail = ({ newsObj }) => (
+const NewsThumbnail = ({ newsObj, location }) => (
   <div
     data-testid="news-thumbnail-container"
     className="news-thumbnail-container col-l-4 col-m-6 col-s-6"
@@ -18,7 +18,10 @@ const NewsThumbnail = ({ newsObj }) => (
     <div className="news-thumbnail-description">{newsObj.description}</div>
     <Link
       className="read-more-link"
-      to={{ pathname: '/article', state: { newsObj } }}
+      to={{
+        pathname: '/article',
+        state: { newsObj, prevPath: location.pathname },
+      }}
     >
       More &gt;
     </Link>
@@ -27,6 +30,7 @@ const NewsThumbnail = ({ newsObj }) => (
 
 NewsThumbnail.defaultProps = {
   newsObj: null,
+  location: null,
 }
 
 NewsThumbnail.propTypes = {
@@ -35,6 +39,9 @@ NewsThumbnail.propTypes = {
     urlToImage: PropTypes.string,
     description: PropTypes.string,
   }),
+  location: PropTypes.shape({
+    pathname: PropTypes.string,
+  }),
 }
 
-export default NewsThumbnail
+export default withRouter(NewsThumbnail)

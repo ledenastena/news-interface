@@ -46,31 +46,31 @@ export function* fetchParallel(action) {
     const country = action.payload
     const [
       business,
-      entertainment,
-      general,
-      health,
-      science,
-      sports,
-      technology,
+      // entertainment,
+      // general,
+      // health,
+      // science,
+      // sports,
+      // technology,
     ] = yield all([
       call(fetchByCategoryAsync, country, 'business'),
-      call(fetchByCategoryAsync, country, 'entertainment'),
-      call(fetchByCategoryAsync, country, 'general'),
-      call(fetchByCategoryAsync, country, 'health'),
-      call(fetchByCategoryAsync, country, 'science'),
-      call(fetchByCategoryAsync, country, 'sports'),
-      call(fetchByCategoryAsync, country, 'technology'),
+      // call(fetchByCategoryAsync, country, 'entertainment'),
+      // call(fetchByCategoryAsync, country, 'general'),
+      // call(fetchByCategoryAsync, country, 'health'),
+      // call(fetchByCategoryAsync, country, 'science'),
+      // call(fetchByCategoryAsync, country, 'sports'),
+      // call(fetchByCategoryAsync, country, 'technology'),
     ])
 
     yield put(
       fetchNewsByCategorySuccess({
         business,
-        entertainment,
-        general,
-        health,
-        science,
-        sports,
-        technology,
+        // entertainment,
+        // general,
+        // health,
+        // science,
+        // sports,
+        // technology,
       })
     )
   } catch (e) {

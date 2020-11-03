@@ -26,7 +26,7 @@ const ArticlePage = ({ location }) => {
         imageTitle={newsObj.title}
       />
       <div className="article-content">{newsObj.content}</div>
-      <Link className="back-to-list-link" to="/">
+      <Link className="back-to-list-link" to={location.state.prevPath}>
         Back to list
       </Link>
     </div>
@@ -45,6 +45,7 @@ ArticlePage.propTypes = {
         urlToImage: PropTypes.string,
         content: PropTypes.string,
       }),
+      prevPath: PropTypes.string,
     }),
   }),
 }

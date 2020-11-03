@@ -18,6 +18,14 @@ class CategoriesPage extends React.Component {
     fetchNewsByCategoryStart(country)
   }
 
+  componentDidUpdate(prevProps) {
+    const { country, fetchNewsByCategoryStart } = this.props
+
+    if (prevProps.country !== country) {
+      fetchNewsByCategoryStart(country)
+    }
+  }
+
   render() {
     const {
       newsByCategory,

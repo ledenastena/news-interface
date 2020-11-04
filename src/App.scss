@@ -159,12 +159,16 @@
       }
     }
 
-    .top-news-page {
-      padding: 0 25px;
+    .top-news-page-container {
+      padding: 15px 25px;
+    }
+
+    .article-container {
+      padding: 15px 25px;
     }
 
     .categories-page-container {
-      padding: 0 25px;
+      padding: 15px 25px;
 
       .category-news-list-container
         .category-expandable-container
@@ -186,7 +190,7 @@
     }
 
     .search-page-container {
-      padding: 0 25px;
+      padding: 15px 25px;
     }
   }
 

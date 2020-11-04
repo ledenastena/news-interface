@@ -28,6 +28,7 @@ class SearchForm extends React.Component {
       <div className="search-form-container">
         <form onSubmit={this.triggerSubmit}>
           <input
+            data-testid="search-field"
             id="search-field"
             aria-label="Search"
             type="text"

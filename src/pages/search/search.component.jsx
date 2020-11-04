@@ -51,7 +51,7 @@ class SearchPage extends React.Component {
         </div>
         <SearchForm handleSubmit={this.handleSubmit} />
         {!initialSearchFired ? (
-          <div className="initial-message">
+          <div data-testid="initial-message" className="initial-message">
             Provide search keywords and press ENTER
           </div>
         ) : (

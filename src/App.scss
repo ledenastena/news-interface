@@ -1,9 +1,10 @@
+@use "src/assets/vendor";
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
 
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
+  @include vendor.align-items(center);
   font-family: Lato, Helvetica, Arial, sans-serif;
   min-height: 100vh;
   color: #474747;
@@ -26,9 +27,9 @@
   .app-width {
     width: 100%;
     max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include vendor.flexbox;
+    @include vendor.flex-direction(column);
+    @include vendor.align-items(center);
   }
   // Responsive design grid
 
@@ -38,8 +39,11 @@
 
   .row {
     width: 100%;
-    display: flex;
-    flex-flow: row wrap;
+    // display: flex;
+    // flex-flow: row wrap;
+    @include vendor.flexbox;
+    @include vendor.flex-direction(row);
+    @include vendor.flex-wrap(wrap);
   }
 
   // On small screens all columns take up 100% of available width
@@ -148,10 +152,10 @@
     }
 
     .header-container .header-width .header-navigation {
-      justify-content: flex-start;
+      @include vendor.justify-content(flex-start);
 
       .regular-navigation {
-        display: flex;
+        @include vendor.flexbox;
       }
 
       .hamburger-menu-button {

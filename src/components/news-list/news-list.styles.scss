@@ -1,5 +1,7 @@
+@use "src/assets/vendor";
+
 .news-list-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  @include vendor.flexbox;
+  @include vendor.justify-content(center);
 }

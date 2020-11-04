@@ -1,15 +1,17 @@
+@use "src/assets/vendor";
+
 .search-page-container {
   width: 100%;
   padding: 15px 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
+  @include vendor.align-items(center);
 
   .search-page-heading {
     font-size: 22px;
     font-weight: 700;
     margin-bottom: 15px;
-    align-self: flex-start;
+    @include vendor.align-self(flex-start);
   }
 
   .initial-message {

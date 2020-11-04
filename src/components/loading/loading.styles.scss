@@ -2,7 +2,7 @@
 
 .loading-ring {
   position: absolute;
-  align-self: center;
+  @include vendor.align-self(center);
   display: inline-block;
   width: 80px;
   height: 80px;

@@ -1,11 +1,12 @@
+@use "src/assets/vendor";
+
 .small-news-thumbnail-container {
   width: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
+  @include vendor.align-items(center);
   padding: 0;
-  transition: visibility 1s, width 1s, padding 1s, opacity 1s, transform 1s;
-  transform: translateX(0);
+  transition: visibility 1s, width 1s, padding 1s, opacity 1s;
   opacity: 1;
   visibility: visible;
 
@@ -13,7 +14,6 @@
     padding: 0;
     opacity: 0;
     width: 0;
-    transform: translateX(-100px);
     visibility: hidden;
   }
 
@@ -50,6 +50,7 @@
   .small-news-thumbnail-image {
     width: 100%;
     height: 40px;
+    -o-object-fit: cover;
     object-fit: cover;
   }
 

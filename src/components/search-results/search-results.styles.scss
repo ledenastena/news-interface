@@ -1,7 +1,9 @@
+@use "src/assets/vendor";
+
 .search-results-container {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
+  @include vendor.align-items(center);
   padding: 15px 0;
 }

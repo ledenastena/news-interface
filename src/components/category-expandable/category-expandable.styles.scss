@@ -1,6 +1,8 @@
+@use "src/assets/vendor";
+
 .category-expandable-container {
-  display: flex;
-  flex-direction: column;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
 
   .category-headline {
     font-size: 22px;

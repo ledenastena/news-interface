@@ -1,8 +1,10 @@
+@use "src/assets/vendor";
+
 .menu-dropdown-container {
   position: absolute;
   top: 50px;
-  display: flex;
-  flex-direction: column;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
   width: 250px;
   padding: 10px 0;
   background-color: white;

@@ -1,5 +1,7 @@
+@use "src/assets/vendor";
+
 .category-preview-container {
-  display: flex;
+  @include vendor.flexbox;
   position: relative;
   width: 100%;
   visibility: visible;
@@ -20,7 +22,7 @@
     border: none;
     background-color: rgba(255, 255, 255, 0);
     height: 30px;
-    align-self: center;
+    @include vendor.align-self(center);
     cursor: pointer;
 
     &:focus {
@@ -34,10 +36,10 @@
   }
 
   .category-thumbnails {
-    display: flex;
+    @include vendor.flexbox;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
+    @include vendor.justify-content(space-between);
+    @include vendor.align-items(center);
     overflow: hidden;
   }
 }

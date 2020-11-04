@@ -1,7 +1,9 @@
+@use "src/assets/vendor";
+
 .article-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include vendor.flexbox;
+  @include vendor.flex-direction(column);
+  @include vendor.align-items(center);
   padding: 15px 5px;
 
   .article-title {
@@ -27,7 +29,7 @@
   }
 
   .back-to-list-link {
-    align-self: flex-start;
+    @include vendor.align-self(flex-start);
   }
 
   .article-error-message {

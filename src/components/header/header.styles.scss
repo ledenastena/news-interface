@@ -1,23 +1,25 @@
+@use "src/assets/vendor";
+
 .header-container {
   width: 100%;
   padding: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include vendor.flexbox;
+  @include vendor.justify-content(center);
+  @include vendor.align-items(center);
   margin-bottom: 30px;
 
   .header-width {
     width: 100%;
     max-width: 1200px;
-    display: flex;
-    justify-content: center;
+    @include vendor.flexbox;
+    @include vendor.justify-content(center);
     position: relative;
 
     .header-navigation {
-      flex-grow: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      @include vendor.flex-grow(1);
+      @include vendor.flexbox;
+      @include vendor.justify-content(center);
+      @include vendor.align-items(center);
 
       .regular-navigation {
         display: none;

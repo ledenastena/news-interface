@@ -1,5 +1,7 @@
+@use "src/assets/vendor";
+
 .loading-image-container {
   position: relative;
-  display: flex;
-  justify-content: center;
+  @include vendor.flexbox;
+  @include vendor.justify-content(center);
 }

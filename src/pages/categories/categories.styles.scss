@@ -1,6 +1,8 @@
+@use "src/assets/vendor";
+
 .categories-page-container {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  @include vendor.flexbox;
+  @include vendor.justify-content(center);
   padding: 15px 5px;
 }

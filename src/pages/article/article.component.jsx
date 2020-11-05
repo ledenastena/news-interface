@@ -27,7 +27,7 @@ const ArticlePage = ({ location }) => {
       />
       <div className="article-content">{newsObj.content}</div>
       <Link className="back-to-list-link" to={location.state.prevPath}>
-        Back to list
+        &lt; Back to list
       </Link>
     </div>
   )

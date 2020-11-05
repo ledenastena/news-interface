@@ -3,6 +3,7 @@
 .category-expandable-container {
   @include vendor.flexbox;
   @include vendor.flex-direction(column);
+  margin: 20px 0;
 
   .category-headline {
     font-size: 22px;

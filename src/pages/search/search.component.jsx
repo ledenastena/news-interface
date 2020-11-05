@@ -4,12 +4,18 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import SearchForm from '../../components/search-form/search-form.component'
 import { selectCountry } from '../../redux/news/news.selectors'
-import { fetchNewsStart } from '../../redux/news/news.actions'
+import { fetchNewsStart, clearNews } from '../../redux/news/news.actions'
 import SearchResults from '../../components/search-results/search-results.component'
 
 class SearchPage extends React.Component {
   state = {
     initialSearchFired: false,
+  }
+
+  componentWillUnmount() {
+    const { clearNews } = this.props
+
+    clearNews()
   }
 
   handleSubmit = (searchTerm) => {
@@ -68,16 +74,19 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchNewsStart: (reqObj) => dispatch(fetchNewsStart(reqObj)),
+  clearNews: () => dispatch(clearNews()),
 })
 
 SearchPage.defaultProps = {
   country: 'gb',
   fetchNewsStart: null,
+  clearNews: null,
 }
 
 SearchPage.propTypes = {
   country: PropTypes.string,
   fetchNewsStart: PropTypes.func,
+  clearNews: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPage)
